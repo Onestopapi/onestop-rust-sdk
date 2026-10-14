@@ -9,7 +9,7 @@ cargo add onestop-antibot
 cargo add tokio --features macros,rt-multi-thread
 ```
 
-The crate is `onestop-antibot`; its library name is `onestop`. Requires Rust 1.88+, Tokio and a C toolchain (zstd builds a bundled C library).
+The crate is `onestop-antibot`; its library name is `onestop`. Requires Rust 1.88+, Tokio and a C toolchain (zstd builds a bundled C library). Package: [crates.io](https://crates.io/crates/onestop-antibot), API reference: [docs.rs](https://docs.rs/onestop-antibot).
 
 ## Quick start
 
