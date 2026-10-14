@@ -1,0 +1,28 @@
+[package]
+name = "onestop-antibot"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+authors = ["onestopantibot"]
+license = "MIT"
+description = "OneStop Antibot SDK: generate Akamai, SBSD, Pixel, DataDome, Cloudflare and Kasada payloads through the /generate API."
+homepage = "https://github.com/Onestopapi/onestop-rust-sdk"
+documentation = "https://onestopantibot.com/dashboard/docs"
+repository = "https://github.com/Onestopapi/onestop-rust-sdk"
+readme = "README.md"
+keywords = ["antibot", "akamai", "datadome", "cloudflare", "kasada"]
+categories = ["api-bindings", "web-programming::http-client"]
+include = ["src/**/*.rs", "Cargo.toml", "README.md", "CHANGELOG.md", "LICENSE"]
+
+[lib]
+name = "onestop"
+
+[dependencies]
+flate2 = "1"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "http2"] }
+ring = "0.17"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["time"] }
+zstd = "0.13"

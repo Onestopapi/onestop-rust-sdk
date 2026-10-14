@@ -1,0 +1,24 @@
+# Build output
+/target/
+Cargo.lock
+**/*.rs.bk
+
+# Coverage and logs
+*.profraw
+lcov.info
+*.log
+
+# Environment
+.env
+.env.*
+
+# IDE and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local only
+/SCHEMAS.md
+/schemas/
