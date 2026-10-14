@@ -5,7 +5,7 @@ Rust client for the [OneStop Antibot](https://onestopantibot.com) API. The SDK c
 ## Install
 
 ```sh
-cargo add onestop-antibot
+cargo add onestop-antibot --git https://github.com/Onestopapi/onestop-rust-sdk
 cargo add tokio --features macros,rt-multi-thread
 ```
 
