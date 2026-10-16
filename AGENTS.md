@@ -4,7 +4,7 @@ Guidance for AI coding assistants using the OneStop Antibot SDK.
 
 ## Rules
 
-1. **Headers and header order matter.** Send exactly the headers a real browser sends for each request type (page, script, XHR/POST), in the same order. Don't let your HTTP client add, drop or reorder headers.
+1. **Headers and header order matter.** Send the headers a real browser sends for each request type (page, script, XHR/POST), in the same order. Check them against your browser on your site, and set the order explicitly so your HTTP client doesn't add, drop or reorder headers.
 2. **Match the site's region.** Use a proxy in the site's country and an `accept_language` for that country, the way an ordinary visitor would. A `.de` site gets a German proxy and `de-DE,de;q=0.9`.
 3. **`sec-ch-ua` headers must be accurate.** When you present as Chromium, `sec-ch-ua`, `sec-ch-ua-mobile`, `sec-ch-ua-platform` (and the full-version hints when sent) must match the User-Agent's browser, version and platform exactly.
 4. **One identity per session.** Create one `client.session(onestop::Session { .. })` per browser identity. Use the same `user_agent`, `accept_language`, `site` and `referer` for every call in it. Set `ip` to the proxy's exit IP (`client.get_ip().await` with `Config::ip_http_client` going through the same proxy).
