@@ -116,4 +116,19 @@ impl ClientSession {
         };
         self.client.generate("Kasada", "kasada", &input).await
     }
+
+    /// Generates the reese84 POST body from the challenge script's URL and raw source.
+    pub async fn imperva(&self, script_url: &str, script: &str) -> Result<ImpervaResponse, Error> {
+        let s = &self.session;
+        let input = wire::Imperva {
+            site: &s.site,
+            user_agent: &s.user_agent,
+            accept_language: &s.accept_language,
+            ip: &s.ip,
+            referer: &s.referer,
+            script_url,
+            script,
+        };
+        self.client.generate("Imperva", "imperva", &input).await
+    }
 }

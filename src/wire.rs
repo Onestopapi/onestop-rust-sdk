@@ -102,6 +102,23 @@ pub(crate) struct KasadaTl<'a> {
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
+pub(crate) struct Imperva<'a> {
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub site: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub user_agent: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub accept_language: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub ip: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub referer: &'a str,
+    pub script_url: &'a str,
+    pub script: &'a str,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
 pub(crate) struct Identity<'a, C> {
     #[serde(skip_serializing_if = "str::is_empty")]
     site: &'a str,

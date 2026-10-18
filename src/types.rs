@@ -242,6 +242,11 @@ response!(
 );
 
 response!(
+    /// The reese84 POST body (JSON text); send it as is.
+    ImpervaResponse { payload: String }
+);
+
+response!(
     /// The target requests for one challenge step.
     CloudflareResponse {
         requests: Vec<CloudflareHttpRequest>,
