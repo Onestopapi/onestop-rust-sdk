@@ -171,6 +171,14 @@ pub struct KasadaCdCall {
     pub subchallenge_count: i64,
 }
 
+/// One `incap_ses_*` cookie of the page host, with its exact value, for [`crate::ClientSession::imperva_utmvc`].
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase", default)]
+pub struct ImpervaSessionCookie {
+    pub name: String,
+    pub value: String,
+}
+
 pub(crate) fn nullable<'de, D, T>(deserializer: D) -> Result<T, D::Error>
 where
     D: Deserializer<'de>,
@@ -242,7 +250,7 @@ response!(
 );
 
 response!(
-    /// The reese84 POST body (JSON text); send it as is.
+    /// The reese84 POST body (JSON text), or the `___utmvc` cookie value; send it as is.
     ImpervaResponse { payload: String }
 );
 

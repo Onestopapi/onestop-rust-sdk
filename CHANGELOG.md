@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 (2026-10-19)
+
+### Added
+
+- Imperva (utmvc): `session.imperva_utmvc(&script_url, &script, &cookies).await` returns `Result<onestop::ImpervaResponse, onestop::Error>`; its payload is the `___utmvc` cookie value.
+
 ## 0.2.0 (2026-10-20)
 
 ### Added

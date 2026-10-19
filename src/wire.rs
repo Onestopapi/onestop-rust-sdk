@@ -2,7 +2,7 @@ use std::io;
 
 use serde::Serialize;
 
-use crate::types::Session;
+use crate::types::{ImpervaSessionCookie, Session};
 
 pub(crate) fn encode<T: Serialize>(value: &T) -> serde_json::Result<Vec<u8>> {
     let mut out = Vec::new();
@@ -115,6 +115,24 @@ pub(crate) struct Imperva<'a> {
     pub referer: &'a str,
     pub script_url: &'a str,
     pub script: &'a str,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub(crate) struct ImpervaUtmvc<'a> {
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub site: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub user_agent: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub accept_language: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub ip: &'a str,
+    #[serde(skip_serializing_if = "str::is_empty")]
+    pub referer: &'a str,
+    pub script_url: &'a str,
+    pub script: &'a str,
+    pub incap_session_cookies: &'a [ImpervaSessionCookie],
 }
 
 #[derive(Serialize)]

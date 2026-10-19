@@ -22,6 +22,6 @@ pub use reqwest;
 pub use types::{
     AkamaiResponse, AkamaiSecCptCall, AkamaiSensorCall, BmpCall, BmpResponse, CloudflareCall, CloudflareHttpRequest, CloudflareResponse,
     DatadomeInterstitialCall, DatadomeInterstitialResponse, DatadomeResponse, DatadomeSliderCall, DatadomeSliderResponse, DatadomeTagsCall,
-    DatadomeTagsResponse, ImpervaResponse, KasadaCdCall, KasadaPScriptResponse, KasadaResponse, PixelCall, PixelResponse, SbsdCall,
-    SbsdResponse, Session,
+    DatadomeTagsResponse, ImpervaResponse, ImpervaSessionCookie, KasadaCdCall, KasadaPScriptResponse, KasadaResponse, PixelCall,
+    PixelResponse, SbsdCall, SbsdResponse, Session,
 };

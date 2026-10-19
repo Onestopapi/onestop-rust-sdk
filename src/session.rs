@@ -131,4 +131,23 @@ impl ClientSession {
         };
         self.client.generate("Imperva", "imperva", &input).await
     }
+
+    /// Generates the `___utmvc` cookie value from the utmvc script's URL and raw source and the page host's `incap_ses_*` cookies, in browser cookie order.
+    pub async fn imperva_utmvc(&self, script_url: &str, script: &str, cookies: &[ImpervaSessionCookie]) -> Result<ImpervaResponse, Error> {
+        if cookies.is_empty() {
+            return Err(Error::local("onestop: cookies is required: the page's incap_ses_* cookies"));
+        }
+        let s = &self.session;
+        let input = wire::ImpervaUtmvc {
+            site: &s.site,
+            user_agent: &s.user_agent,
+            accept_language: &s.accept_language,
+            ip: &s.ip,
+            referer: &s.referer,
+            script_url,
+            script,
+            incap_session_cookies: cookies,
+        };
+        self.client.generate("Imperva", "imperva", &input).await
+    }
 }
