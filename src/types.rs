@@ -91,6 +91,8 @@ pub struct DatadomeTagsCall {
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", default)]
 pub struct DatadomeInterstitialCall {
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub interstitial_block_url: String,
     pub script: String,
     pub html: String,
     pub page_response: String,
@@ -102,6 +104,10 @@ pub struct DatadomeInterstitialCall {
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", default)]
 pub struct DatadomeSliderCall {
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub captcha_page_url: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub script_url: String,
     pub script: String,
     pub html: String,
     pub page_response: String,
